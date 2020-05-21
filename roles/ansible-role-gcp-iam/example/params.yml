@@ -1,0 +1,10 @@
+gcp_iam_bindings:
+- roles/viewer:
+  - domain:abc.com
+  - serviceAccount:abc@abc.iam.gserviceaccount.com
+  - user:jyoti@abc.com
+- roles/websecurityscanner.serviceAgent:
+  - serviceAccount:service-11111111111@gcp-sa-websecurityscanner.iam.gserviceaccount.com
+
+gcp_project_number: '11111111111'
+gcp_project_id: 'my-project-id'

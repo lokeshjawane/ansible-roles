@@ -1,0 +1,13 @@
+---
+# defaults file for ansible-role-gcp-iam
+gcp_iam_bindings:
+- roles/cloudfunctions.serviceAgent:
+  - serviceAccount:service-11111111111@gcf-admin-robot.iam.gserviceaccount.com
+- roles/compute.serviceAgent:
+  - serviceAccount:service-11111111111@compute-system.iam.gserviceaccount.com
+- roles/viewer:
+  - user:jyoti@abc.com
+  - user:neha@abc.com
+
+gcp_project_number: "111111111111"
+gcp_project_id: "my-project-id"

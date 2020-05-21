@@ -1,0 +1,18 @@
+- name: Create dummy iam json file
+  copy:
+    dest: "/tmp/new_iam_role_binding"
+    content: "{\"bindings\" : {{gcp_iam_bindings}}}"
+    force: yes
+
+- name: Run script to manage IAM rol bindings
+  shell: "python {{role_path}}/scripts/script.py --project-number {{gcp_project_number}} --file /tmp/new_iam_role_binding"
+  register: iam_output
+  environment:
+    GCP_PROJ_ID: "{{gcp_project_id}}"
+
+- debug: var=iam_output
+
+- name: Remove new iam role binding file
+  file:
+    path: "/tmp/new_iam_role_binding"
+    state: absent
